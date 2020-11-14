@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:playing_around/shared/my_card.dart';
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
+class Home extends StatelessWidget {
   final title = 'ללמוד אותיות ומספרים';
 
   @override
@@ -17,14 +12,14 @@ class _HomeState extends State<Home> {
           title,
           style: TextStyle(
             letterSpacing: 5.0,
-            color: Colors.red[900],
+            color: Colors.pink[600],
             fontWeight: FontWeight.bold,
             fontSize: 20.0,
           ),
         ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.blue[200],
+        backgroundColor: Colors.purple[100],
       ),
       body: ListView(
         children: <Widget>[

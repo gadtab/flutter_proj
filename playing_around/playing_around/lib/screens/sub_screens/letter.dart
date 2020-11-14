@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:playing_around/shared/my_app_bar.dart';
 import 'package:whiteboardkit/drawing_controller.dart';
 import 'package:whiteboardkit/whiteboard.dart';
-import 'package:whiteboardkit/whiteboardkit.dart';
 
-class Number extends StatefulWidget {
-  final int number;
+class Letter extends StatefulWidget {
+  final String letter;
+  final String fontFamily;
 
-  Number({this.number});
+  Letter({this.letter, this.fontFamily});
 
   @override
-  _NumberState createState() => _NumberState();
+  _LetterState createState() => _LetterState();
 }
 
-class _NumberState extends State<Number> {
+class _LetterState extends State<Letter> {
   DrawingController controller;
 
   @override
@@ -36,8 +36,8 @@ class _NumberState extends State<Number> {
       body: Column(
         children: [
           Text(
-            '${widget.number}',
-            style: TextStyle(fontSize: 200.0),
+            '${widget.letter}',
+            style: TextStyle(fontSize: 200.0, fontFamily: widget.fontFamily),
           ),
           Expanded(
             child: Whiteboard(

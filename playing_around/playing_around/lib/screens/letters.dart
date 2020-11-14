@@ -1,33 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:playing_around/screens/sub_screens/number.dart';
+import 'package:playing_around/screens/sub_screens/letter.dart';
 import 'package:playing_around/shared/my_app_bar.dart';
 
-class Numbers extends StatelessWidget {
+class Letters extends StatelessWidget {
+  final List<String> letters;
+  final String title;
+  final String fontFamily;
+
+  Letters({this.letters, this.title, this.fontFamily});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
         appBar: AppBar(),
-        title: 'מספרים',
+        title: title,
       ),
       body: GridView.count(
-        crossAxisCount: 3,
+        crossAxisCount: 5,
         children: List.generate(
-            10,
+            letters.length,
             (index) => Center(
                   child: FlatButton(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Number(
-                                  number: index,
+                            builder: (context) => Letter(
+                                  letter: letters[index],
+                                  fontFamily: fontFamily,
                                 )),
                       );
                     },
                     child: Text(
-                      '$index',
-                      style: Theme.of(context).textTheme.headline3,
+                      '${letters[index]}',
+                      style: TextStyle(
+                        fontSize: 28.0,
+                        fontFamily: fontFamily,
+                      ),
                     ),
                   ),
                 )),
